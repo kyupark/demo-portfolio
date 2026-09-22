@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="JaeYoun Park — brand identity and visual systems. A research-led portfolio reconstruction based on publicly verifiable career and studio archives.">
+  <meta name="theme-color" content="#f2f0ea">
+  <title>JaeYoun Park — Brand Identity & Visual Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#f2f0ea;
+      --ink:#101010;
+      --muted:#6b6964;
+      --line:rgba(16,16,16,.16);
+      --card:#e9e6df;
+      --red:#cf1f2f;
+      --orange:#e86d22;
+      --yellow:#efa829;
+      --purple:#8d365d;
+      --max:1540px;
+      --pad:clamp(20px,3.4vw,58px);
+      --serif:"Instrument Serif", Georgia, serif;
+      --sans:"DM Sans", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.48;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;height:auto}
+    button{font:inherit}
+    .shell{width:min(100%,var(--max));margin:0 auto;padding-inline:var(--pad)}
+    .hairline{border-top:1px solid var(--line)}
+    .eyebrow{font-size:11px;line-height:1.2;letter-spacing:.15em;text-transform:uppercase;font-weight:600}
+    .muted{color:var(--muted)}
+    .serif{font-family:var(--serif);font-weight:400}
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(242,240,234,.84);border-bottom:1px solid rgba(16,16,16,.09)}
+    .nav{height:68px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+    .brand{font-size:13px;font-weight:600;letter-spacing:.08em}
+    .nav-center{display:flex;gap:28px;font-size:12px}
+    .nav-center a,.nav-link{position:relative}
+    .nav-center a:after,.nav-link:after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:1px;background:currentColor;transition:right .3s ease}
+    .nav-center a:hover:after,.nav-link:hover:after{right:0}
+    .nav-right{justify-self:end;display:flex;gap:18px;font-size:12px}
+    .hero{min-height:calc(100vh - 68px);display:grid;grid-template-rows:1fr auto;padding-top:clamp(46px,8vw,128px);padding-bottom:24px}
+    .hero-title{font-family:var(--serif);font-size:clamp(72px,13.4vw,215px);font-weight:400;line-height:.78;letter-spacing:-.055em;margin:0;max-width:12ch}
+    .hero-title i{font-weight:400}
+    .hero-bottom{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:24px;align-items:end;padding-top:60px}
+    .hero-intro{font-size:clamp(18px,2vw,30px);line-height:1.18;max-width:28ch}
+    .hero-meta{font-size:12px;max-width:32ch}
+    .arrow{font-size:20px}
+    .saekdong-rule{height:10px;display:grid;grid-template-columns:1.3fr .72fr 1fr .52fr;margin:0}
+    .saekdong-rule span:nth-child(1){background:var(--red)}
+    .saekdong-rule span:nth-child(2){background:var(--orange)}
+    .saekdong-rule span:nth-child(3){background:var(--purple)}
+    .saekdong-rule span:nth-child(4){background:var(--yellow)}
+    .feature-intro{padding-top:110px;padding-bottom:36px;display:grid;grid-template-columns:1fr 2fr;gap:40px}
+    .feature-intro h2{font-family:var(--serif);font-weight:400;font-size:clamp(54px,8vw,126px);line-height:.86;letter-spacing:-.045em;margin:0}
+    .feature-copy{align-self:end;display:grid;grid-template-columns:1fr 1fr;gap:28px;font-size:13px}
+    .feature-copy p{margin:0}
+    .case-hero{position:relative;overflow:hidden;background:#ddd}
+    .case-hero img{height:min(80vw,940px);object-fit:cover;object-position:center 45%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+    .case-hero:hover img{transform:scale(1.012)}
+    .image-tag{position:absolute;left:16px;bottom:15px;background:rgba(242,240,234,.9);padding:8px 10px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(8px)}
+    .case-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:18px;padding-bottom:82px;font-size:12px}
+    .case-meta dt{color:var(--muted);margin-bottom:4px}
+    .case-meta dd{margin:0}
+    .statement{padding-top:80px;padding-bottom:100px;display:grid;grid-template-columns:1fr 3fr;gap:40px}
+    .statement .big{font-family:var(--serif);font-size:clamp(44px,6.4vw,104px);line-height:.95;letter-spacing:-.035em;margin:0;max-width:13ch}
+    .statement .body{align-self:end;max-width:58ch;font-size:16px}
+    .statement .body p{margin:0 0 1em}
+    .spread{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .spread figure,.gallery figure,.studio-card figure{margin:0;overflow:hidden;background:#dfddd7}
+    .spread img{aspect-ratio:4/3;object-fit:cover}
+    .caption{display:flex;justify-content:space-between;gap:20px;padding:9px 0 20px;font-size:10px;color:var(--muted)}
+    .quote-block{padding-top:120px;padding-bottom:120px;display:grid;grid-template-columns:1fr 3fr;gap:40px}
+    .quote-block blockquote{font-family:var(--serif);font-size:clamp(44px,6.6vw,106px);line-height:.94;letter-spacing:-.035em;margin:0}
+    .quote-block .source{align-self:end;font-size:11px;color:var(--muted)}
+    .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
+    .gallery figure:nth-child(1){grid-row:span 2}
+    .gallery figure:nth-child(1) img{height:100%;min-height:640px}
+    .gallery figure:nth-child(n+2) img{aspect-ratio:1/1;object-fit:cover;height:100%}
+    .gallery img{object-fit:cover}
+    .gallery-two{display:grid;grid-template-columns:1fr 1.55fr;gap:8px;margin-top:8px}
+    .gallery-two figure{margin:0;overflow:hidden;background:#ddd}
+    .gallery-two img{height:clamp(440px,58vw,820px);object-fit:cover}
+    .launch{padding-top:115px;padding-bottom:110px;display:grid;grid-template-columns:1fr 1.7fr 1fr;gap:36px}
+    .launch .year{font-family:var(--serif);font-size:clamp(82px,13vw,200px);line-height:.8;letter-spacing:-.06em}
+    .launch h3{font-family:var(--serif);font-size:clamp(36px,4vw,62px);font-weight:400;line-height:1;margin:0 0 24px}
+    .launch p{font-size:14px;margin:0;max-width:50ch}
+    .launch .fact{font-size:11px;color:var(--muted);align-self:end}
+    .credit-note{background:#121212;color:#f3f0e9;margin-top:10px}
+    .credit-note-inner{padding-top:86px;padding-bottom:86px;display:grid;grid-template-columns:1fr 2.2fr;gap:40px}
+    .credit-note h3{font-family:var(--serif);font-size:clamp(42px,6vw,88px);line-height:.95;font-weight:400;margin:0}
+    .credit-columns{display:grid;grid-template-columns:1fr 1fr;gap:30px;font-size:13px}
+    .credit-columns p{margin:0}
+    .credit-columns strong{display:block;color:#fff;margin-bottom:9px}
+    .source-links{padding-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+    .source-pill{border:1px solid rgba(255,255,255,.28);padding:9px 11px;border-radius:999px;font-size:10px;transition:.2s ease}
+    .source-pill:hover{background:#f3f0e9;color:#111}
+    .archive{padding-top:120px;padding-bottom:120px}
+    .section-heading{display:grid;grid-template-columns:1fr 2.3fr;gap:40px;margin-bottom:58px}
+    .section-heading h2{font-family:var(--serif);font-size:clamp(56px,9vw,138px);line-height:.83;letter-spacing:-.05em;font-weight:400;margin:0}
+    .section-heading .intro{align-self:end;max-width:65ch;font-size:14px}
+    .archive-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:8px 12px}
+    .studio-card{grid-column:span 6;margin-bottom:66px}
+    .studio-card:nth-child(3){grid-column:3/span 5}
+    .studio-card:nth-child(4){grid-column:8/span 5}
+    .studio-card img{aspect-ratio:5/4;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+    .studio-card:hover img{transform:scale(1.018)}
+    .studio-card-info{display:grid;grid-template-columns:1fr auto;gap:20px;padding-top:14px}
+    .studio-card h3{font-family:var(--serif);font-size:36px;font-weight:400;margin:0 0 4px}
+    .studio-card p{font-size:11px;color:var(--muted);margin:0;max-width:62ch}
+    .studio-card .scope{text-align:right;font-size:10px;color:var(--muted);max-width:22ch}
+    .profile{padding-top:100px;padding-bottom:120px}
+    .profile-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:70px}
+    .profile h2{font-family:var(--serif);font-size:clamp(58px,9vw,142px);line-height:.82;letter-spacing:-.05em;font-weight:400;margin:0}
+    .profile-copy{align-self:end}
+    .profile-copy .lead{font-family:var(--serif);font-size:clamp(26px,3.2vw,48px);line-height:1.07;margin:0 0 26px}
+    .profile-copy p{font-size:13px;max-width:60ch}
+    .facts{margin-top:34px;border-top:1px solid var(--line)}
+    .fact-row{display:grid;grid-template-columns:1fr 2fr;padding:11px 0;border-bottom:1px solid var(--line);font-size:11px}
+    .research{padding-top:100px;padding-bottom:100px}
+    .research-grid{display:grid;grid-template-columns:1fr 2fr;gap:50px}
+    .research h2{font-family:var(--serif);font-size:clamp(46px,7vw,105px);line-height:.9;font-weight:400;letter-spacing:-.035em;margin:0}
+    .research-list{border-top:1px solid var(--line)}
+    .research-item{display:grid;grid-template-columns:70px 1fr auto;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;font-size:12px}
+    .research-item span:first-child{color:var(--muted)}
+    .research-item a{font-size:11px;text-decoration:underline;text-underline-offset:3px}
+    footer{padding:35px 0 24px}
+    .footer-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;font-size:10px;color:var(--muted)}
+    .footer-row .center{font-family:var(--serif);font-size:22px;color:var(--ink)}
+    .footer-row .right{justify-self:end;text-align:right}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.65,.2,1)}
+    .reveal.is-visible{opacity:1;transform:none}
+    @media(max-width:900px){
+      .nav{grid-template-columns:1fr auto}.nav-center{display:none}.nav-right{grid-column:2}
+      .hero{min-height:82vh}.hero-bottom{grid-template-columns:1fr;gap:18px}.hero-meta{max-width:55ch}
+      .feature-intro,.statement,.quote-block,.credit-note-inner,.section-heading,.research-grid,.profile-grid{grid-template-columns:1fr}
+      .feature-copy{grid-template-columns:1fr}.case-meta{grid-template-columns:1fr 1fr}
+      .spread,.gallery-two{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}
+      .gallery figure:nth-child(1){grid-column:1/-1;grid-row:auto}.gallery figure:nth-child(1) img{min-height:0;aspect-ratio:4/3}
+      .launch{grid-template-columns:1fr}.launch .fact{align-self:auto}
+      .credit-columns{grid-template-columns:1fr}
+      .studio-card,.studio-card:nth-child(3),.studio-card:nth-child(4){grid-column:span 12}
+      .profile-copy{margin-top:20px}.research-grid{gap:28px}
+    }
+    @media(max-width:560px){
+      .site-header{position:relative}.nav{height:58px}.nav-right a:first-child{display:none}
+      .hero{min-height:72vh;padding-top:58px}.hero-title{font-size:clamp(66px,24vw,116px)}
+      .feature-intro{padding-top:74px}.case-hero img{height:74vh}
+      .case-meta{grid-template-columns:1fr}.statement,.quote-block,.archive,.profile,.research{padding-top:72px;padding-bottom:72px}
+      .gallery{grid-template-columns:1fr}.gallery figure:nth-child(1){grid-column:auto}.gallery figure img{aspect-ratio:4/3!important}
+      .gallery-two img{height:auto;aspect-ratio:4/3}.launch{padding-top:75px;padding-bottom:75px}
+      .archive-grid{display:block}.studio-card{margin-bottom:50px}
+      .studio-card-info{grid-template-columns:1fr}.studio-card .scope{text-align:left}
+      .fact-row{grid-template-columns:1fr;gap:3px}.research-item{grid-template-columns:44px 1fr}.research-item a{grid-column:2}
+      .footer-row{grid-template-columns:1fr;gap:12px}.footer-row .center,.footer-row .right{justify-self:start;text-align:left}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.case-hero img,.studio-card img{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="shell nav" aria-label="Primary navigation">
+      <a class="brand" href="#top">JAEYOUN PARK</a>
+      <div class="nav-center">
+        <a href="#asiana">Asiana</a>
+        <a href="#archive">Studio archive</a>
+        <a href="#profile">Profile</a>
+      </div>
+      <div class="nav-right">
+        <a class="nav-link" href="#research">Research notes</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/jaeyoun-park-37b2a944/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="shell hero">
+      <div>
+        <p class="eyebrow reveal">Brand Identity · Visual Systems · Geneva</p>
+        <h1 class="hero-title reveal">JaeYoun<br><i>Park</i></h1>
+      </div>
+      <div class="hero-bottom reveal">
+        <div class="hero-intro">Identity systems shaped for culture, movement and everyday use.</div>
+        <div class="hero-meta muted">A research-led portfolio reconstruction based on publicly verifiable career and studio archives. Project credits are intentionally conservative.</div>
+        <div class="arrow" aria-hidden="true">↓</div>
+      </div>
+    </section>
+
+    <div class="saekdong-rule" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+    <section id="asiana">
+      <div class="shell feature-intro reveal">
+        <div>
+          <p class="eyebrow muted">01 · Featured Case Study</p>
+          <h2>Asiana<br>Airlines</h2>
+        </div>
+        <div class="feature-copy">
+          <p>In 2006, Asiana Airlines introduced a new identity system within the Kumho Asiana Group’s unified CI framework. SodiumPartners’ public archive documents the airline-specific work across <strong>class naming, brand identity and technical drawing</strong>.</p>
+          <p class="muted">The system paired the group Wing mark with Asiana’s established saekdong heritage and extended it into aircraft, airports, ticketing, lounges, vehicles and other touchpoints. Aircraft-livery design and technical consulting are credited by SodiumPartners to Joseph McGuire Associates, San Francisco.</p>
+        </div>
+      </div>
+
+      <div class="case-hero reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533551693618-CHVIVEORPJ1OGVB2GKOX/a000.jpg" alt="Asiana Airlines aircraft tail showing the Energy of Saekdong graphic motif" fetchpriority="high">
+        <div class="image-tag">Asiana Airlines · SodiumPartners public project archive</div>
+      </div>
+
+      <dl class="shell case-meta reveal">
+        <div><dt>Client</dt><dd>Asiana Airlines</dd></div>
+        <div><dt>Studio credit</dt><dd>SodiumPartners</dd></div>
+        <div><dt>Documented scope</dt><dd>Class Naming · Brand Identity · Technical Drawing</dd></div>
+        <div><dt>Launch</dt><dd>2006 · Seoul / Incheon</dd></div>
+      </dl>
+
+      <div class="shell statement reveal">
+        <p class="eyebrow muted">Identity idea</p>
+        <div>
+          <p class="big">Energy of Saekdong.</p>
+          <div class="body">
+            <p>SodiumPartners describes the visual concept as a reinterpretation of Asiana’s existing “saekdong wings” and warm-grey assets into a more contemporary, dynamic system. Overlapping curves carry the color and rhythm of traditional Korean saekdong into a modern airline context.</p>
+            <p class="muted">Asiana’s own CI page still names the graphic motif “ENERGY OF SAEKDONG” and describes it as a modern development of traditional Korean color culture.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell spread reveal">
+        <figure>
+          <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533551816960-6ASTLKC307NZE7WPD80O/a00-1.jpg" alt="Asiana Airlines wordmark and red Wing symbol">
+          <figcaption class="caption"><span>Corporate signature</span><span>Studio archive</span></figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533551897176-DS3LB31NBTK125LUJLED/asiana-05.jpg" alt="Asiana Airlines Travel Class ticket jacket">
+          <figcaption class="caption"><span>Travel Class ticket jacket</span><span>Studio archive</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="shell quote-block reveal">
+        <div class="source">The airline application system moved from a mark to an environment: aircraft, signage, service classes, printed matter and digital templates.</div>
+        <blockquote>One identity.<br><i>Many moments.</i></blockquote>
+      </div>
+
+      <div class="shell gallery reveal">
+        <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533551877961-QGXAE03IA7QAFNQJV72Z/asiana-03.jpg" alt="Asiana Airlines airport check-in counter with identity signage"></figure>
+        <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533551920005-N891SUO77F62ZJBQDI2K/asiana-06.jpg" alt="Asiana Lounge Business Class signage"></figure>
+        <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533551950001-RJ6Z1XTDJ59R2EC6MBK2/asiana-09.jpg" alt="Asiana branded shopping bag"></figure>
+        <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533551936846-X2HXR6HW5DSPMG2DQ98B/asiana-08.jpg" alt="Asiana airport alliance signage"></figure>
+        <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533551969656-IROGM6KLT2N0K4ORS7ZB/asiana-11.jpg" alt="Asiana branded airport service vehicle"></figure>
+      </div>
+
+      <div class="shell gallery-two reveal">
+        <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533551986623-3GEYNCP2O9WEER4I1G8P/asiana-12.jpg" alt="Asiana exterior building signage"></figure>
+        <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533552749951-0MVNY4ZV3WETXOME4D4P/a00.jpg" alt="Asiana Airlines aircraft in full 2006 livery"></figure>
+      </div>
+
+      <div class="shell launch reveal">
+        <div class="year">2006</div>
+        <div>
+          <h3>From aircraft to the airport.</h3>
+          <p>On 26 October 2006, Asiana unveiled Boeing 777 HL7597 in the new livery at Incheon International Airport. Contemporary reporting says the aircraft entered service the next day on the Incheon–Narita OZ104 route. The identity was rolled into sales and airport signage, ticket covers, Asiana Club cards and advertising; Economy Class was renamed <strong>Travel Class</strong>.</p>
+        </div>
+        <div class="fact">Launch facts cross-checked against Asiana-related 2006 reporting and the airline’s later corporate-history material.</div>
+      </div>
+
+      <div class="shell spread reveal">
+        <figure>
+          <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533552186015-VCGB6SDFC0OAX8OZDHJM/a01.jpg" alt="Asiana airport gate and digital information displays">
+          <figcaption class="caption"><span>Airport gate / digital display</span><span>Studio archive</span></figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1533552428970-1GKYYNK2Y8A1R21SSOWT/a02.jpg" alt="Rear view of Asiana aircraft with Energy of Saekdong tail">
+          <figcaption class="caption"><span>Aircraft livery</span><span>Studio archive</span></figcaption>
+        </figure>
+      </div>
+
+      <aside class="credit-note">
+        <div class="shell credit-note-inner reveal">
+          <div>
+            <p class="eyebrow" style="color:#aaa">Credit clarity</p>
+            <h3>Studio work,<br><i>not invented ownership.</i></h3>
+          </div>
+          <div>
+            <div class="credit-columns">
+              <p><strong>Kumho Asiana Group Wing mark</strong>Contemporary 2006 reporting credits Landor with proposing the group’s red “Wing” CI. The airline identity sits within that group framework, so this site does not attribute the group symbol itself to SodiumPartners or to JaeYoun Park.</p>
+              <p><strong>Asiana Airlines identity system</strong>SodiumPartners’ official archive credits the studio with Class Naming, Brand Identity and Technical Drawing for Asiana Airlines, and credits Joseph McGuire Associates with aircraft-livery design and technical consulting. Public sources reviewed do not itemize JaeYoun Park’s individual responsibilities on this case, so it is presented at studio/team level.</p>
+            </div>
+            <div class="source-links">
+              <a class="source-pill" href="https://www.sodiumpartners.com/wk-asiana" target="_blank" rel="noopener">SodiumPartners case ↗</a>
+              <a class="source-pill" href="https://flyasiana.com/C/KR/KO/contents/ci" target="_blank" rel="noopener">Asiana official CI ↗</a>
+              <a class="source-pill" href="https://www.newswire.co.kr/newsRead.php?no=198163" target="_blank" rel="noopener">2006 launch report ↗</a>
+              <a class="source-pill" href="https://www.donga.com/news/Economy/article/all/20060220/8276939/1" target="_blank" rel="noopener">2006 group-CI report ↗</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="archive" class="shell archive">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow muted">02 · Context</p>
+          <h2>Studio<br>archive</h2>
+        </div>
+        <div class="intro">
+          <p><strong>LinkedIn’s public profile verifies JaeYoun Park’s experience at SodiumPartners.</strong> It does not expose project-by-project participation or individual responsibilities. The projects below are therefore shown as selected work from the studio’s public archive during the broader career context, <em>not as unverified personal credits</em>.</p>
+        </div>
+      </div>
+
+      <div class="archive-grid">
+        <article class="studio-card reveal">
+          <a href="https://www.sodiumpartners.com/wk-airseoul" target="_blank" rel="noopener">
+            <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/c42f44a8-da9b-43f2-a5c1-17efa05c05fe/03.jpg" alt="Air Seoul in-flight entertainment screen in mint brand system"></figure>
+            <div class="studio-card-info">
+              <div><h3>Air Seoul</h3><p>Harmony of Contrast. A mint-led airline system connecting the Korean initials ㅅㅇ with the Roman AO structure.</p></div>
+              <div class="scope">Studio scope<br>Brand Statement · Brand Identity · Technical Drawing</div>
+            </div>
+          </a>
+        </article>
+
+        <article class="studio-card reveal">
+          <a href="https://www.sodiumpartners.com/wk-pulmuone" target="_blank" rel="noopener">
+            <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1689641839568-HB7LFJDZ35LR1PE6QYNK/03.jpg" alt="Pulmuone refreshed identity and logo system"></figure>
+            <div class="studio-card-info">
+              <div><h3>Pulmuone</h3><p>A refreshed masterbrand built around the existing equity of a familiar Korean food brand and a unified “One Pulmuone” direction.</p></div>
+              <div class="scope">Studio scope<br>Brand Strategy · Nomenclature · Brand Identity</div>
+            </div>
+          </a>
+        </article>
+
+        <article class="studio-card reveal">
+          <a href="https://www.sodiumpartners.com/wk-samyang" target="_blank" rel="noopener">
+            <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1689652382550-WIWQIJCOKD9RD6KI8LGC/01.jpg" alt="Samyang Life's Ingredients brand identity presentation"></figure>
+            <div class="studio-card-info">
+              <div><h3>Samyang</h3><p>“Life’s ingredients,” expressed through a simplified RGB-dot system that behaves like a quotation mark and an expandable visual language.</p></div>
+              <div class="scope">Studio scope<br>Brand Strategy · Brand Identity · Packaging System · Font</div>
+            </div>
+          </a>
+        </article>
+
+        <article class="studio-card reveal">
+          <a href="https://www.sodiumpartners.com/wk-fursys" target="_blank" rel="noopener">
+            <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5b35dd4b36099b1e5fe89dfb/1534232424833-POZW7458H7THWKUC2RTG/pulmuone08.jpg" alt="Brand strategy workshop wall from SodiumPartners archive">
+            </figure>
+            <div class="studio-card-info">
+              <div><h3>Fursys</h3><p>“Office we love.” A workplace brand platform articulated around Happy Professionalism and a renewed document system.</p></div>
+              <div class="scope">Studio scope<br>Brand Platform · Statement · Brand Identity · Document System</div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="profile" class="profile hairline">
+      <div class="shell profile-grid reveal">
+        <div>
+          <p class="eyebrow muted">03 · Profile</p>
+          <h2>Design with<br><i>memory.</i></h2>
+        </div>
+        <div class="profile-copy">
+          <p class="lead">JaeYoun Park is a Geneva-area design professional with experience at SodiumPartners.</p>
+          <p>The public LinkedIn profile lists SodiumPartners in Geneva and study at Schule für Gestaltung Basel in 2014. Because the public profile snapshot does not expose a full role title, dates for every position, or project-level duties, this reconstruction deliberately leaves those details unstated rather than guessing.</p>
+          <div class="facts">
+            <div class="fact-row"><span class="muted">Current public location</span><span>Veyrier, Geneva, Switzerland</span></div>
+            <div class="fact-row"><span class="muted">Verified organization</span><span>SodiumPartners</span></div>
+            <div class="fact-row"><span class="muted">Education shown publicly</span><span>Schule für Gestaltung Basel · 2014</span></div>
+            <div class="fact-row"><span class="muted">Profile</span><span><a style="text-decoration:underline;text-underline-offset:3px" href="https://www.linkedin.com/in/jaeyoun-park-37b2a944/" target="_blank" rel="noopener">LinkedIn ↗</a></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="shell research">
+      <div class="research-grid reveal">
+        <div>
+          <p class="eyebrow muted">04 · Provenance</p>
+          <h2>Research<br><i>notes</i></h2>
+        </div>
+        <div>
+          <p style="max-width:64ch;margin:0 0 30px;font-size:13px">The portfolio uses primary studio and airline sources wherever possible, then cross-checks launch facts against contemporary reporting. No complete public Asiana identity manual was located in the sources reviewed, so the site links to the airline’s official CI asset page rather than fabricating manual pages.</p>
+          <div class="research-list">
+            <div class="research-item"><span>Primary</span><strong>SodiumPartners — Asiana Airlines project archive</strong><a href="https://www.sodiumpartners.com/wk-asiana" target="_blank" rel="noopener">Open ↗</a></div>
+            <div class="research-item"><span>Primary</span><strong>Asiana Airlines — official CI / Energy of Saekdong</strong><a href="https://flyasiana.com/C/KR/KO/contents/ci" target="_blank" rel="noopener">Open ↗</a></div>
+            <div class="research-item"><span>Archive</span><strong>Asiana corporate-history PDF — 30-year history</strong><a href="https://ozimg.flyasiana.com/editor/image/20220414/b207dca0-84bf-49a1-9102-dae1febcf5e0.pdf" target="_blank" rel="noopener">Open PDF ↗</a></div>
+            <div class="research-item"><span>2006</span><strong>Newswire — first aircraft in new livery / rollout</strong><a href="https://www.newswire.co.kr/newsRead.php?no=198163" target="_blank" rel="noopener">Open ↗</a></div>
+            <div class="research-item"><span>2006</span><strong>Dong-A Ilbo — Kumho Asiana group Wing CI / Landor</strong><a href="https://www.donga.com/news/Economy/article/all/20060220/8276939/1" target="_blank" rel="noopener">Open ↗</a></div>
+            <div class="research-item"><span>Career</span><strong>JaeYoun Park — public LinkedIn profile</strong><a href="https://www.linkedin.com/in/jaeyoun-park-37b2a944/" target="_blank" rel="noopener">Open ↗</a></div>
+            <div class="research-item"><span>Studio</span><strong>SodiumPartners — Air Seoul / Pulmuone / Samyang / Fursys</strong><a href="https://www.sodiumpartners.com/work" target="_blank" rel="noopener">Open ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="hairline">
+    <div class="shell footer-row">
+      <div>Portfolio reconstruction · 2026</div>
+      <div class="center">JaeYoun Park</div>
+      <div class="right">Images shown from SodiumPartners’ public project archive.<br>Trademarks and source imagery remain property of their respective owners.</div>
+    </div>
+  </footer>
+
+  <script>
+    const reveal = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          reveal.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.08, rootMargin: '0px 0px -3% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
+  </script>
+</body>
+</html>
